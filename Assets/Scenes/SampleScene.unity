@@ -474,6 +474,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacle: {fileID: 5177458557978286364, guid: b77edfb56773ae24b9de30449c1a62c6, type: 3}
+  min_delay: 1
+  max_delay: 1.4
 --- !u!4 &917827729
 Transform:
   m_ObjectHideFlags: 0
