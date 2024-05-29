@@ -2,24 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+public class Obstacle : Object
 {
-    public enum Summonpos
+    public override void Interaction(Collider2D collision)
     {
-        Left, Right
-    };
+        Player player = collision.GetComponent<Player>();
+        player.hp -= value;
+        if (player.hp < 0) player.hp = 0;
+        UIManager.Instance.Sethpbar();
 
-    public Summonpos summonpos;
-    public float damage;
-    public float speed;
-    public bool move;
-    public bool back;
-    public float min_delay;
-    public float max_delay;
-
-    // Update is called once per frame
-    protected virtual void Update()
-    {
-        
+        Destroy(gameObject);
     }
 }

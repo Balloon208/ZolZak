@@ -96,18 +96,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5177458557978286364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56beff92b4741de468c7c7b3b2641fa7, type: 3}
+  m_Script: {fileID: 11500000, guid: 298ddb572eda91242b086c29c78bce18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   summonpos: 1
-  damage: 0
-  speed: 15
+  value: 15
+  speed: 10
   move: 1
+  back: 1
   min_delay: 0.8
   max_delay: 1.3
-  back: 1
-  rigid: {fileID: 0}
-  backlock: 0
 --- !u!50 &-4923085137409221713
 Rigidbody2D:
   serializedVersion: 4
