@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleSpawner : MonoBehaviour
+public class ObjectSpawner : MonoBehaviour
 {
     public GameObject obstacle;
     public float min_delay;
@@ -14,11 +14,11 @@ public class ObstacleSpawner : MonoBehaviour
     void Summon()
     {
         summonline = Random.Range(0, GameManager.Instance.lines.Length);
-        if (obstacle.GetComponent<Obstacle>().summonpos == Obstacle.Summonpos.Left)
+        if (obstacle.GetComponent<Object>().summonpos == Object.Summonpos.Left)
         {
             Instantiate(obstacle, new Vector2(GameManager.Instance.summonbars[0].transform.position.x, GameManager.Instance.lines[summonline].transform.position.y), Quaternion.identity);
         }
-        if (obstacle.GetComponent<Obstacle>().summonpos == Obstacle.Summonpos.Right)
+        if (obstacle.GetComponent<Object>().summonpos == Object.Summonpos.Right)
         {
             Instantiate(obstacle, new Vector2(GameManager.Instance.summonbars[1].transform.position.x, GameManager.Instance.lines[summonline].transform.position.y), Quaternion.identity);
         }
