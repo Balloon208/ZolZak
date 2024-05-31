@@ -644,9 +644,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e6462716e3872478eac276b0a22754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 5177458557978286364, guid: b77edfb56773ae24b9de30449c1a62c6, type: 3}
-  min_delay: 1
-  max_delay: 1.4
+  obstacles:
+  - {fileID: 5177458557978286364, guid: b77edfb56773ae24b9de30449c1a62c6, type: 3}
+  - {fileID: 5177458557978286364, guid: 8901f62260f03ad46a6ffa42409530cf, type: 3}
+  - {fileID: 5177458557978286364, guid: 47fbd713167497b4bacb0b106ff85ee8, type: 3}
+  - {fileID: 5177458557978286364, guid: 042672509e0980a4c9f71e565987250c, type: 3}
+  - {fileID: 5177458557978286364, guid: eaf1387ff1d3b7342a1e7a5e1e67824f, type: 3}
+  min_delay: 2
+  max_delay: 2.5
 --- !u!4 &917827729
 Transform:
   m_ObjectHideFlags: 0
@@ -689,6 +694,7 @@ MonoBehaviour:
   deletebars:
   - {fileID: 1378579914}
   - {fileID: 1133172156}
+  gameover: 0
 --- !u!1 &1026953923
 GameObject:
   m_ObjectHideFlags: 0

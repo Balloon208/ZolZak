@@ -8,7 +8,12 @@ public class Obstacle : Object
     {
         Player player = collision.GetComponent<Player>();
         player.hp -= value;
-        if (player.hp < 0) player.hp = 0;
+        if (player.hp < 0)
+        {
+            player.hp = 0;
+            GameManager.Instance.gameover = true;
+        }
+
         UIManager.Instance.Sethpbar();
 
         Destroy(gameObject);
