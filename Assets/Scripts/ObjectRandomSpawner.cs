@@ -15,6 +15,10 @@ public class ObjectRandomSpawner : BaseSpawner
         min_delay /= player.speed / 5;
         max_delay /= player.speed / 5;
         summonlock = new bool[1];
+
+        summonlock[0] = true;
+        delay = Random.Range(min_delay, max_delay);
+        StartCoroutine(Wait(delay));
     }
 
     protected override void Summon(int index)

@@ -23,6 +23,12 @@ public class ObjectSpawner : BaseSpawner
             items[i].delay /= player.speed/5;
             summonlock[i] = false;
         }
+
+        for (int i = 0; i < items.Length; i++)
+        {
+            summonlock[i] = true;
+            StartCoroutine(Wait(items[i].delay, i));
+        }
     }
 
     protected override void Summon(int index)
