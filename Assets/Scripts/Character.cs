@@ -9,7 +9,7 @@ public class Character : MonoBehaviour
     public float speed;
     public float autodamagetime;
     public int coin;
-    public int score;
+    public float score;
     public int line;
 
     protected bool autodamagelock;
@@ -58,10 +58,22 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void GetScore()
+    {
+        score += Mathf.Round((speed/50)*10)/10f;
+        score = Mathf.Round(score*10)/10f;
+        UIManager.Instance.Setscoretext();
+    }
+
     public IEnumerator Autoattack(float delay)
     {
         yield return new WaitForSeconds(delay);
         hp -= 1;
+        if (hp < 0)
+        {
+            hp = 0;
+            GameManager.Instance.gameover = true;
+        }
         UIManager.Instance.Sethpbar();
         autodamagelock = false;
     }

@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : Object
+public class HpPotion : Object
 {
     public override void Interaction(Collider2D collision)
     {
         Player player = collision.GetComponent<Player>();
-        player.hp -= value;
-        if (player.hp < 0)
+        player.hp += value;
+        if (player.hp > player.maxhp)
         {
-            player.hp = 0;
-            GameManager.Instance.gameover = true;
+            player.hp = player.maxhp;
         }
 
         UIManager.Instance.Sethpbar();

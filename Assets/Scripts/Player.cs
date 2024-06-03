@@ -14,4 +14,12 @@ public class Player : Character
         Autodamage();
         Move();    
     }
+
+    private void FixedUpdate()
+    {
+        if(GameManager.Instance.gameover==false)
+        {
+            GetScore();
+        }
+    }
 }

@@ -8,4 +8,5 @@ public class GameManager : Singleton<GameManager>
     public GameObject[] LRbars;
     public GameObject[] summonbars;
     public GameObject[] deletebars;
+    public bool gameover;
 }

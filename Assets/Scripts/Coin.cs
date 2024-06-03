@@ -2,19 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : Object
+public class Coin : Object
 {
     public override void Interaction(Collider2D collision)
     {
         Player player = collision.GetComponent<Player>();
-        player.hp -= value;
-        if (player.hp < 0)
-        {
-            player.hp = 0;
-            GameManager.Instance.gameover = true;
-        }
+        player.coin += (int)value;
 
-        UIManager.Instance.Sethpbar();
+        UIManager.Instance.Setcointext();
 
         Destroy(gameObject);
     }

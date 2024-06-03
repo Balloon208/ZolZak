@@ -1,44 +1,52 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectSpawner : MonoBehaviour
+public class ObjectSpawner : BaseSpawner
 {
-    public GameObject obstacle;
-    public float min_delay;
-    public float max_delay;
-    private float delay;
-    private bool summonlock;
-
-    int summonline = 0;
-    void Summon()
+    [Serializable]
+    public struct Items
     {
-        summonline = Random.Range(0, GameManager.Instance.lines.Length);
-        if (obstacle.GetComponent<Object>().summonpos == Object.Summonpos.Left)
+        public GameObject obj;
+        public float delay;
+    };
+    public Items[] items;
+    private float delay;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        summonlock = new bool[items.Length];
+        for (int i = 0; i < items.Length; i++)
         {
-            Instantiate(obstacle, new Vector2(GameManager.Instance.summonbars[0].transform.position.x, GameManager.Instance.lines[summonline].transform.position.y), Quaternion.identity);
+            items[i].delay /= player.speed/5;
+            summonlock[i] = false;
         }
-        if (obstacle.GetComponent<Object>().summonpos == Object.Summonpos.Right)
-        {
-            Instantiate(obstacle, new Vector2(GameManager.Instance.summonbars[1].transform.position.x, GameManager.Instance.lines[summonline].transform.position.y), Quaternion.identity);
-        }
+    }
+
+    protected override void Summon(int index)
+    {
+        SummonObject(items[index].obj);
     }
 
     // Update is called once per frame
     void Update()
     {
-        delay = Random.Range(min_delay, max_delay);
-        if(summonlock == false)
+        for (int i = 0; i < items.Length; i++)
         {
-            Summon();
-            summonlock = true;
-            StartCoroutine(Wait(delay));
+            if (summonlock[i]==false)
+            {
+                summonlock[i] = true;
+                Summon(i);
+                StartCoroutine(Wait(items[i].delay, i));
+            }
         }
     }
 
-    IEnumerator Wait(float delay)
+    IEnumerator Wait(float delay, int idx)
     {
         yield return new WaitForSeconds(delay);
-        summonlock = false;
+        summonlock[idx] = false;
     }
 }

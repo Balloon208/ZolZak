@@ -6,7 +6,7 @@ public class Object : MonoBehaviour
 {
     public enum Summonpos
     {
-        Left, Right
+        Default, Left, Right
     };
 
     public Summonpos summonpos;
@@ -16,9 +16,13 @@ public class Object : MonoBehaviour
     public bool back;
     public float min_delay;
     public float max_delay;
+    public int chance;
 
     Rigidbody2D rigid;
+    Player player;
+    [SerializeField]
     private bool backlock;
+    [SerializeField]
     private bool movelock;
     private float ypos;
 
@@ -28,6 +32,11 @@ public class Object : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         ypos = transform.position.y;
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+
+        speed *= player.speed / 5;
+        min_delay /= player.speed / 5;
+        max_delay /= player.speed / 5;
     }
 
     public virtual void Interaction(Collider2D collision)
@@ -70,7 +79,7 @@ public class Object : MonoBehaviour
             {
                 rigid.velocity = new Vector2(-rigid.velocity.x, rigid.velocity.y);
             }
-            if ((rigid.velocity.x < 3f && summonpos == Summonpos.Left) || (rigid.velocity.x > -3f && summonpos == Summonpos.Right) && backlock == false)
+            if (((rigid.velocity.x < 3f && summonpos == Summonpos.Left) || (rigid.velocity.x > -3f && summonpos == Summonpos.Right)) && backlock == false)
             {
                 movelock = false;
                 backlock = true;
