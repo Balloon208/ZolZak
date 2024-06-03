@@ -106,7 +106,7 @@ MonoBehaviour:
   back: 0
   min_delay: 0
   max_delay: 0
-  chance: 0
+  chance: 10
   backlock: 0
   movelock: 0
 --- !u!61 &3450761419562243968
