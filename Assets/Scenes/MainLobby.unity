@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 226558661}
   - component: {fileID: 226558660}
   m_Layer: 5
-  m_Name: Button (Legacy) (1)
+  m_Name: Button (Speed)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -357,8 +357,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -100}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 375, y: -75}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &226558660
 MonoBehaviour:
@@ -1279,7 +1279,7 @@ GameObject:
   - component: {fileID: 795497028}
   - component: {fileID: 795497027}
   m_Layer: 5
-  m_Name: Button (Legacy) (2)
+  m_Name: Button (Fever)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1302,8 +1302,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 700, y: -100}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 675, y: -75}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &795497027
 MonoBehaviour:
@@ -1721,7 +1721,7 @@ GameObject:
   - component: {fileID: 1445895397}
   - component: {fileID: 1445895396}
   m_Layer: 5
-  m_Name: Button (Legacy) (5)
+  m_Name: Button (additional_speed)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1842,7 +1842,7 @@ GameObject:
   - component: {fileID: 1553887342}
   - component: {fileID: 1553887341}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Button (Hp)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1865,8 +1865,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -100}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 75, y: -75}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1553887341
 MonoBehaviour:
@@ -2275,7 +2275,7 @@ GameObject:
   - component: {fileID: 1831308599}
   - component: {fileID: 1831308598}
   m_Layer: 5
-  m_Name: Button (Legacy) (4)
+  m_Name: Button (additional_shield)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2396,7 +2396,7 @@ GameObject:
   - component: {fileID: 1863677241}
   - component: {fileID: 1863677240}
   m_Layer: 5
-  m_Name: Button (Legacy) (3)
+  m_Name: Button (additional_hp)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
