@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public abstract class Character : MonoBehaviour
 {
     public float hp;
     public float maxhp;
@@ -22,10 +22,7 @@ public class Character : MonoBehaviour
         line = 2;
     }
 
-    public virtual void UseSkill()
-    {
-
-    }
+    public abstract void UseSkill();
 
     public void Move()
     {
@@ -60,7 +57,7 @@ public class Character : MonoBehaviour
 
     public void GetScore()
     {
-        score += Mathf.Round((speed/50)*10)/10f;
+        score += Mathf.Round((speed/50)*10)/10f; // 추가로 userupgrade에 따른 speed 값도 필요
         score = Mathf.Round(score*10)/10f;
         UIManager.Instance.Setscoretext();
     }

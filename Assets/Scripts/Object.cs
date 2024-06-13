@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Object : MonoBehaviour
+public abstract class Object : MonoBehaviour
 {
     public enum Summonpos
     {
@@ -39,10 +39,7 @@ public class Object : MonoBehaviour
         max_delay /= player.speed / 5;
     }
 
-    public virtual void Interaction(Collider2D collision)
-    {
-
-    }
+    public abstract void Interaction(Collider2D collision);
 
     // Update is called once per frame
     protected void Update()
