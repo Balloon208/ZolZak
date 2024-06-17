@@ -78,4 +78,6 @@ public class GameManager : Singleton<GameManager>
         26000,
         28000
     };
+
+    public int[] additionalupgradecost = { 500, 700, 1000 };
 }

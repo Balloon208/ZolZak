@@ -6,11 +6,20 @@ using UnityEngine.UI;
 
 public class Lobby_UIManager : MonoBehaviour
 {
+    public Text coin;
+    public Text diamond;
     public Text itemname;
     public Image itemimage;
-    public Text coin;
+    public Text cost;
     public Text itemdescription;
     public Text buttontext;
+
+    private void Awake()
+    {
+        SetItemInfo(0);
+        SetCoin();
+        SetDiamond();
+    }
 
     string[] itemnamelist = {"체력강화", "속도강화", "아이템강화", "추가체력", "추가보호막", "추가속도"};
     string[] itemdescriptionlist =
@@ -25,33 +34,43 @@ public class Lobby_UIManager : MonoBehaviour
 
     public void SetItemInfo(int itemid)
     {
+        GetComponent<LobbyManager>().selectid = itemid;
+
         if (itemid < 3)
         {
             itemname.text = itemnamelist[itemid] + " Lv." + User.permamentupgrade[itemid].ToString();
-            switch (itemid)
-            {
-                case 0:
-                    coin.text = GameManager.Instance.upgradehpcost[User.permamentupgrade[0]].ToString();
-                    break;
-                case 1:
-                    coin.text = GameManager.Instance.upgradespeedcost[User.permamentupgrade[1]].ToString();
-                    break;
-                case 2:
-                    coin.text = GameManager.Instance.upgradeitemcost[User.permamentupgrade[2]].ToString();
-                    break;
-            }
-
+            cost.text = GameManager.Instance.upgradehpcost[User.permamentupgrade[itemid]].ToString();
             buttontext.text = "업그레이드";
         }
         else if (itemid < 6)
         {
             itemname.text = itemnamelist[itemid] + " x" + User.additionalupgradeamount[itemid - 3].ToString();
+            cost.text = GameManager.Instance.additionalupgradecost[itemid - 3].ToString();
             buttontext.text = "구매";
         }
         itemdescription.text = itemdescriptionlist[itemid];
-        Image setimage = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).GetComponent<Image>();
-        itemimage.sprite = setimage.sprite;
-        itemimage.color = setimage.color;
+
+        GameObject temp = EventSystem.current.currentSelectedGameObject;
+
+        if (temp != null)
+        {
+            Image setimage = temp.transform.GetChild(0).GetComponent<Image>();
+            if (setimage != null)
+            {
+                itemimage.sprite = setimage.sprite;
+                itemimage.color = setimage.color;
+            }
+        }
+    }
+
+    public void SetCoin()
+    {
+        coin.text = User.coin.ToString();
+    }
+
+    public void SetDiamond()
+    {
+        diamond.text = User.diamond.ToString();
     }
 
     public void TurnOnCanvas(GameObject onCanvas)

@@ -12,6 +12,7 @@ public class Obstacle : Object
         {
             player.hp = 0;
             GameManager.Instance.gameover = true;
+            StartCoroutine(player.Die());
         }
 
         UIManager.Instance.Sethpbar();
