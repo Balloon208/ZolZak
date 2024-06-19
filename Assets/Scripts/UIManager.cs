@@ -18,7 +18,7 @@ public class UIManager : Singleton<UIManager>
     public void Setscoretext()
     {
         Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        scoretext.text = player.score.ToString();
+        scoretext.text = player.score.ToString() + "m";
     }
 
     public void Setcointext()

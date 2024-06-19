@@ -206,7 +206,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &72171456
 MonoBehaviour:
@@ -349,10 +349,15 @@ MonoBehaviour:
   hp: 0
   maxhp: 100
   speed: 5
-  autodamagetime: 1
+  autodamagetime: 0.8
   coin: 0
+  diamond: 0
   score: 0
   line: 0
+  shield: 0
+  additionalhp: 0
+  additionalshield: 0
+  additionalspeed: 0
 --- !u!50 &291331787
 Rigidbody2D:
   serializedVersion: 4
@@ -727,7 +732,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Coin
+  m_Text: 0
 --- !u!222 &694339524
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -749,6 +754,7 @@ GameObject:
   - component: {fileID: 917827732}
   - component: {fileID: 917827731}
   - component: {fileID: 917827730}
+  - component: {fileID: 917827733}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -789,7 +795,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &917827730
 MonoBehaviour:
@@ -819,6 +825,10 @@ MonoBehaviour:
   - {fileID: 1378579914}
   - {fileID: 1133172156}
   gameover: 0
+  upgradehpcost: e8030000d0070000b80b0000a00f00008813000070170000581b0000401f00002823000010270000e02e0000b0360000803e000050460000204e0000f0550000c05d000090650000606d0000
+  upgradespeedcost: e8030000d0070000b80b0000a00f00008813000070170000581b0000401f00002823000010270000e02e0000b0360000803e000050460000204e0000f0550000c05d000090650000606d0000
+  upgradeitemcost: e8030000d0070000b80b0000a00f00008813000070170000581b0000401f00002823000010270000e02e0000b0360000803e000050460000204e0000f0550000c05d000090650000606d0000
+  additionalupgradecost: f4010000bc020000e8030000
 --- !u!114 &917827731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,6 +866,18 @@ MonoBehaviour:
   - {fileID: 8276777776162320161, guid: 0c72270ed133155449c97fe952a4619d, type: 3}
   min_delay: 4
   max_delay: 6
+--- !u!114 &917827733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917827727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26c38fd0d407024693678feb224cf95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1026953923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,6 +1226,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1159254618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1159254619}
+  - component: {fileID: 1159254620}
+  m_Layer: 0
+  m_Name: PlayManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1159254619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159254618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1116.4543, y: 615.1146, z: 4.8429585}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1159254620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159254618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 905212e81e928cf48b56254f065d0116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hpbar: {fileID: 249823304}
 --- !u!1 &1276923495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1804,7 +1871,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1594283334
 GameObject:
@@ -2153,7 +2220,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1866167080
 GameObject:
@@ -2424,7 +2491,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2014541695
 MonoBehaviour:
