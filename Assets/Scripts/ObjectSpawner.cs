@@ -20,7 +20,7 @@ public class ObjectSpawner : BaseSpawner
         summonlock = new bool[items.Length];
         for (int i = 0; i < items.Length; i++)
         {
-            items[i].delay /= player.speed/5;
+            items[i].delay /= (player.speed + User.permamentupgrade[2] * 0.5f) / 5;
             summonlock[i] = false;
         }
 

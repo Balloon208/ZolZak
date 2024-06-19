@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1567bcf5b5cbca48a75cc03982927ea, type: 3}
+  m_Name: Fish Data1
+  m_EditorClassIdentifier: 
+  id: 1
+  fishimage: {fileID: 21300000, guid: 81b4dddc7e0003b40a23c121bcc29eff, type: 3}
+  fishanimation: {fileID: 9100000, guid: da4c9b2839d567a45ae426e30cf9c32b, type: 2}
+  fishname: "\uBD81\uD574 \uBB3C\uACE0\uAE30"
+  hp: 120
+  speed: 4
+  skilldescription: "\uCC28\uAC00\uC6C0"
+  cost: 1000

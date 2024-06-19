@@ -12,20 +12,50 @@ public abstract class Character : MonoBehaviour
     public int diamond;
     public float score;
     public int line;
+    public bool shield;
 
+    [HideInInspector]
+    public bool additionalhp;
+    [HideInInspector]
+    public bool additionalshield;
+    [HideInInspector]
+    public bool additionalspeed;
     protected bool autodamagelock;
 
     protected void Awake()
     {
-        maxhp = 100 + (5*User.permamentupgrade[0]); // 물고기의 체력 + 체력 강화의 체력
-
+        maxhp = CharacterSet.Instance.fishdata[User.equipedfish].hp;
+        speed = CharacterSet.Instance.fishdata[User.equipedfish].speed;
+        UseBoost();
+        maxhp += (5*User.permamentupgrade[0]); // 물고기의 체력 + 체력 강화의 체력
         hp = maxhp;
+
+        GetComponent<Animator>().runtimeAnimatorController = CharacterSet.Instance.fishdata[User.equipedfish].fishanimation;
         coin = 0;
         score = 0;
         line = 2;
     }
 
     public abstract void UseSkill();
+
+    public void UseBoost()
+    {
+        if (User.additionalupgradeamount[0] > 0)
+        {
+            User.additionalupgradeamount[0]--;
+            maxhp += 30;
+        }
+        if (User.additionalupgradeamount[1] > 0)
+        {
+            User.additionalupgradeamount[1]--;
+            shield = true;
+        }
+        if (User.additionalupgradeamount[2] > 0)
+        {
+            User.additionalupgradeamount[2]--;
+            speed *= 1.25f;
+        }
+    }
 
     public void Move()
     {

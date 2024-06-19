@@ -6,4 +6,6 @@ public static class User
     public static float distance;
     public static int[] permamentupgrade = {1, 1, 1};
     public static int[] additionalupgradeamount = { 0, 0, 0 };
+    public static bool[] fish = {true, false, false};
+    public static int equipedfish = 0;
 }

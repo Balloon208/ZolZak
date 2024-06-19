@@ -354,6 +354,10 @@ MonoBehaviour:
   diamond: 0
   score: 0
   line: 0
+  shield: 0
+  additionalhp: 0
+  additionalshield: 0
+  additionalspeed: 0
 --- !u!50 &291331787
 Rigidbody2D:
   serializedVersion: 4
