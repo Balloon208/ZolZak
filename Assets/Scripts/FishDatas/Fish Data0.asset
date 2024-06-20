@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   fishimage: {fileID: 21300000, guid: 952b6c7264c222f45ad5df92202a9a68, type: 3}
-  fishanimation: {fileID: 9100000, guid: 401a4fab1d9ee1e43b259316c4b7a2e3, type: 2}
+  fishanimation: {fileID: 9100000, guid: 55cf58bb6c008ec48b757ea608b9b3fb, type: 2}
   fishname: "\uD3C9\uBC94\uD55C \uBB3C\uACE0\uAE30"
   hp: 100
   speed: 5

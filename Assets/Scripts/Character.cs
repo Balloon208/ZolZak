@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
+    public GameObject shieldobject;
     public float hp;
     public float maxhp;
     public float speed;
@@ -29,7 +30,6 @@ public abstract class Character : MonoBehaviour
         UseBoost();
         maxhp += (5*User.permamentupgrade[0]); // 물고기의 체력 + 체력 강화의 체력
         hp = maxhp;
-
         GetComponent<Animator>().runtimeAnimatorController = CharacterSet.Instance.fishdata[User.equipedfish].fishanimation;
         coin = 0;
         score = 0;
@@ -48,6 +48,7 @@ public abstract class Character : MonoBehaviour
         if (User.additionalupgradeamount[1] > 0)
         {
             User.additionalupgradeamount[1]--;
+            shieldobject.SetActive(true);
             shield = true;
         }
         if (User.additionalupgradeamount[2] > 0)
@@ -120,5 +121,11 @@ public abstract class Character : MonoBehaviour
         }
         UIManager.Instance.Sethpbar();
         autodamagelock = false;
+    }
+
+    public void UseShield()
+    {
+        shieldobject.SetActive(false);
+        shield = false;
     }
 }

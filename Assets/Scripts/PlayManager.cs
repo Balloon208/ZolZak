@@ -10,6 +10,6 @@ public class PlayManager : MonoBehaviour
     {
         Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
         RectTransform rectTransform = Hpbar.GetComponent<RectTransform>();
-        rectTransform.sizeDelta = new Vector2(player.maxhp * 6, rectTransform.sizeDelta.y);
+        rectTransform.sizeDelta = new Vector2(player.maxhp * 5, rectTransform.sizeDelta.y);
     }
 }
