@@ -7,6 +7,13 @@ public class Obstacle : Object
     public override void Interaction(Collider2D collision)
     {
         Player player = collision.GetComponent<Player>();
+
+        if(player.shield == true)
+        {
+            player.UseShield();
+            return;
+        }
+
         player.hp -= value;
         if (player.hp < 0)
         {

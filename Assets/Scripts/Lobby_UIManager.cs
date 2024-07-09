@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Lobby_UIManager : MonoBehaviour
 {
+    public Slider distance;
+    public Text distancetext;
     public Text coin;
     public Text diamond;
     public Text itemname;
@@ -18,6 +20,7 @@ public class Lobby_UIManager : MonoBehaviour
     {
         SetItemInfo(0);
         SetCoin();
+        SetDistance();
         SetDiamond();
     }
 
@@ -61,6 +64,15 @@ public class Lobby_UIManager : MonoBehaviour
                 itemimage.color = setimage.color;
             }
         }
+    }
+
+    public void SetDistance()
+    {
+        distance.value = User.distance / 300000f;
+        float temp = Mathf.Round(User.distance / 1000 * 100) / 100f;
+
+        Debug.Log(temp);
+        distancetext.text = temp.ToString() + "km";
     }
 
     public void SetCoin()
